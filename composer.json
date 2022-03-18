@@ -1,0 +1,19 @@
+{
+    "name": "simplon/brief-femme",
+    "autoload": {
+        "psr-4": {
+            "Simplon\\BriefFemme\\": "public/",
+            "Router\\": "routes/",
+            "App\\": "app/",
+            "Database\\": "database/"
+           
+        }
+    },
+    "authors": [
+        {
+            "name": "Anta",
+            "email": "antambaye261971@gmail.com"
+        }
+    ],
+    "require": {}
+}
