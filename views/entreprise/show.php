@@ -1,5 +1,6 @@
 <h1><?= $params['entreprise'] ->nom ?></h1>
 <p><?= $params['entreprise'] ->siege ?></p>
+<p><?= $params['entreprise'] ->siteWeb ?></p>
 <p><?= $params['entreprise']->ninea ?></p>
 <p><?= $params['entreprise']->dispositifFormation ?></p>
 <p><?= $params['entreprise']->organigramme ?></p>

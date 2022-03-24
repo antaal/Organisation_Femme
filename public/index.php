@@ -1,5 +1,6 @@
 <?php
 use Router\Router;
+use App\Exceptions\NotFoundException;
 require '../vendor/autoload.php';
 
 //Definir des Variables
@@ -20,5 +21,17 @@ $router ->get('/entreprises', 'App\Controllers\EntrepriseController@index');
 $router -> get('/entreprises/:id', 'App\Controllers\EntrepriseController@show');
 
 
+$router -> get('/admin/entreprises', 'App\Controllers\Admin\PostController@index');
+$router -> post('/admin/entreprises/delete/:id', 'App\Controllers\Admin\PostController@destroy');
+$router -> get('/admin/entreprises/edit/:id', 'App\Controllers\Admin\PostController@edit');
+$router -> post('/admin/entreprises/edit/:id', 'App\Controllers\Admin\PostController@update');
 
-$router->run();
+
+
+
+
+try {
+    $router->run();
+} catch (NotFoundException $e) {
+    return $e->error404();
+}
