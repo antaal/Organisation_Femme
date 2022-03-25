@@ -1,4 +1,5 @@
 <h1>Administration des Entreprises</h1>
+     <a href="/admin/entreprises/create" class="btn btn-success my-3">Créer Une Nouvelle Entreprise</a>
 
 <table class="table">
   <thead>
@@ -20,7 +21,10 @@
       <td><?= $entreprise->nom ?></td>
       <td><?= $entreprise->siege ?></td>
       <td><?= $entreprise->telephone ?></td>
-      <td><?= $entreprise->quartier_id ?></td>
+      <?php foreach ($entreprise->getQuartier() as $quartier): ?>
+        <td><?= $quartier->nom ?></td>
+      <?php endforeach ?>
+    
       <td><?= $entreprise->getCreatedAt() ?></td>
       <td>
           <a href="/admin/entreprises/edit/<?= $entreprise->id ?>" class="btn btn-warning">Modifier</a>

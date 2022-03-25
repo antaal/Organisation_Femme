@@ -24,13 +24,29 @@ abstract class Model {
          return  $this->query("SELECT * FROM {$this->table} WHERE id = ?", [$id], true);
     }
 
-    public function update(int $id,array $data )
+    public function create(array $data, ?array $relations = null)
+    {
+        $firstParenthesis = "";
+        $secondParenthesis = "";
+        $i = 1;
+
+        foreach ($data as $key => $value) {
+            $comma = $i ===count($data) ? "" : ", ";
+            $firstParenthesis .= "{$key}{$comma}";
+            $secondParenthesis .= ": {$key}{$comma}";
+            $i++;
+        }
+            return $this->query("INSERT INTO {$this->table} ($firstParenthesis)
+             VALUES ($secondParenthesis)", $data);
+    }
+
+    public function update(int $id,array $data , ?array $relation = null)
     {   
         $sqlRequestPart = "";
         $i = 1;
 
         foreach ($data as $key => $value) {
-            $comma = $i ===count($data) ? " " : ', ';
+            $comma = $i ===count($data) ? "" : ', ';
            $sqlRequestPart .= "{$key} = :{$key}{$comma}";
            $i++;
         }
@@ -50,7 +66,7 @@ abstract class Model {
         $method = is_null($param) ? 'query' : 'prepare'; 
         if (strpos($sql, 'DELETE') === 0 
         || strpos($sql, 'UPDATE') === 0 
-        || strpos($sql, 'CREATE') === 0 ) {
+        || strpos($sql, 'INSERT') === 0 ) {
 
             $stmt = $this->db->getPDO()->$method($sql);
             $stmt->setFetchMode(PDO:: FETCH_CLASS, get_class($this),[$this->db]);

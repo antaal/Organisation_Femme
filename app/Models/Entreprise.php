@@ -12,6 +12,7 @@ class Entreprise extends Model{
        return (new DateTime($this->dateCreation))->format('d/m/Y à H:i');
         
     }
+   
 
     public function getButton():string
     {
@@ -22,18 +23,15 @@ return <<<HTML
 HTML;
 
     }
-    // public function getQuartier()
-    // {
-    //      return $this->query("
-    //      SELECT * FROM `entreprises` , `quartiers` 
-    //      WHERE entreprises.quartier_id = quartiers.id",$this->id);
-    // }
-    // public function getQuartier()
-    // {
-    //     return $this->query("
-    //      SELECT nom FROM  `quartiers` 
-    //      WHERE entreprises.quartier_id = quartiers.id", [$this->id]);
-    // }
+    
+   
+public function getQuartier()
+{
+    return $this->query("SELECT quartiers.nom FROM `quartiers`  INNER JOIN `entreprises`  on entreprises.quartier_id = quartiers.id WHERE entreprises.id = ?",
+    [$this->id]);
+}
+
+  
 
     
     

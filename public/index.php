@@ -18,10 +18,13 @@ $router= new Router($_GET['url']);
 $router ->get('/', 'App\Controllers\EntrepriseController@welcome');
 $router ->get('/entreprises', 'App\Controllers\EntrepriseController@index');
 
+
 $router -> get('/entreprises/:id', 'App\Controllers\EntrepriseController@show');
 
 
 $router -> get('/admin/entreprises', 'App\Controllers\Admin\PostController@index');
+$router -> get('/admin/entreprises/create', 'App\Controllers\Admin\PostController@create');
+$router -> post('/admin/entreprises/create', 'App\Controllers\Admin\PostController@createPost');
 $router -> post('/admin/entreprises/delete/:id', 'App\Controllers\Admin\PostController@destroy');
 $router -> get('/admin/entreprises/edit/:id', 'App\Controllers\Admin\PostController@edit');
 $router -> post('/admin/entreprises/edit/:id', 'App\Controllers\Admin\PostController@update');

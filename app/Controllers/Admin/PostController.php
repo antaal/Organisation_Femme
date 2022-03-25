@@ -15,12 +15,26 @@ class PostController extends Controller
         return $this->view('admin.entreprise.index', compact('entreprises'));
         
     }
+    public function create()
+    {
+        return $this->view('admin.entreprise.form');
+    }
 
+    public function createPost()
+    {
+        $entreprise = new Entreprise($this->getDB());
+        $result = $entreprise ->create( $_POST);
+
+        if ($result) {
+            return header('Location: /admin/entreprises');
+        }
+    }
     public function edit(int $id)
     {
         $entreprise = (new Entreprise($this->getDB()))->findById($id);
-        
-        return $this->view('admin.entreprise.edit', compact('entreprise'));
+
+
+        return $this->view('admin.entreprise.form', compact('entreprise'));
     }
 
     public function update(int $id)
