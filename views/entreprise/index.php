@@ -22,7 +22,9 @@
                           <td><?= $entreprise->nom ?></td>
                          <td><?= $entreprise->siege ?></td>
                           <td><?= $entreprise->ninea ?></td>
-                            <td><?= $entreprise->quartier_id?></td>
+                          <?php foreach ($entreprise->getQuartier() as $quartier): ?>
+        <td><?= $quartier->nom ?></td>
+      <?php endforeach ?>
                             <td><small class="bg-success w-100 rounded">Crée le <?= $entreprise->getCreatedAt() ?></small><br><br></td>
 
                             <td>

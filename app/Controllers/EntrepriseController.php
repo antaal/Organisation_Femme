@@ -17,7 +17,7 @@ class EntrepriseController extends Controller{
         $entreprise = new Entreprise($this->getDB());
         $entreprises = $entreprise->all();
        
-           return $this->view('entreprise.index', compact('entreprises'));
+        return $this->view('entreprise.index', compact('entreprises'));
     }
 
 

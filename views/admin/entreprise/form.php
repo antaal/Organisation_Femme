@@ -1,4 +1,3 @@
-
 <h1><?= $params['entreprise']->nom ?? 'Créer Une Nouvelle Entreprise'?></h1>
 
 <form method="POST" action="<?= isset($params['entreprise']) ? "/admin/entreprises/edit/{$params['entreprise']->id}" : "/admin/entreprises/create" ?>" >
@@ -34,11 +33,25 @@
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" name="organigramme" id="organigramme" value="<?= $params['entreprise']->organigramme ?? '' ?>">
                         <label class="form-check-label" for="organigramme">Avez-vous un organigramme ?</label>
-                      </div>
+                      </div class="form-group">
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" name="contrat" id="contrat" value="<?= $params['entreprise']->contrat ?? '' ?>">
                         <label class="form-check-label" for="contrat">Avez-vous des contrats ?</label>
                       </div>
+                      <div>
+                      <select class="form-control" name="quartiers[]" id="quartiers" >
+                  
+                     <?php foreach ($params['quartiers'] as $quartier) : ?>
+                      <option value ="<?= $quartier->id ?>"
+                      <?php if (isset($params['entreprise'])) : ?> 
+                        <?php foreach ($params['entreprise']->getQuartier() as $entreprise) {
+                       echo ($quartier->id === $entreprise->quartier_id) ? 'selected' : '';
+                      }
+                      ?><?php endif ?>
+                      ><?= $quartier->nom ?></option>
+                      <?php endforeach ?>
+                      
+                </select></div><br>
 
                 
 
