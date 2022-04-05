@@ -9,6 +9,7 @@ abstract class Controller { //cette classe ne sera jamais instancie donc on le m
 
     public function __construct(DBConnection $db)
     {
+       
         $this->db = $db;
     }
     

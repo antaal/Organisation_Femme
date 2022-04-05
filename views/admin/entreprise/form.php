@@ -38,6 +38,7 @@
                         <input type="checkbox" class="form-check-input" name="contrat" id="contrat" value="<?= $params['entreprise']->contrat ?? '' ?>">
                         <label class="form-check-label" for="contrat">Avez-vous des contrats ?</label>
                       </div>
+
                       <div>
                       <select class="form-control" name="quartiers[]" id="quartiers" >
                   

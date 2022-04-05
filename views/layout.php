@@ -22,6 +22,9 @@
       <li class="nav-item">
         <a class="nav-link" href="/entreprises">Partenaires</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://brieffemme.test/admin/entreprises">Admin</a>
+      </li>
     </ul>
   </div>
 </nav>
