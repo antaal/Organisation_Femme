@@ -1,3 +1,4 @@
+<?php echo password_hash('admin', PASSWORD_DEFAULT); ?>
 <h1> Homepage </h1>
 
 salllllllluuuuuuuuuuuuuuu

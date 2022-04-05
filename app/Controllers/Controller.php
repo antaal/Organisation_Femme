@@ -9,7 +9,9 @@ abstract class Controller { //cette classe ne sera jamais instancie donc on le m
 
     public function __construct(DBConnection $db)
     {
-       
+       if (session_status() === PHP_SESSION_NONE) {
+          session_start();
+       }
         $this->db = $db;
     }
     
@@ -25,5 +27,14 @@ abstract class Controller { //cette classe ne sera jamais instancie donc on le m
     protected function getDB() // permet la connection a la BD
     {
         return $this->db;
+    }
+
+    protected function isAdmin()
+    {
+        if(isset($_SESSION['auth']) && $_SESSION['auth'] ===1){
+            return true;
+        }else {
+            return header('Location: /login');
+        }
     }
 }

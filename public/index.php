@@ -21,6 +21,7 @@ $router -> get('/entreprises/:id', 'App\Controllers\EntrepriseController@show');
 
 $router ->get('/login', 'App\Controllers\UserController@login');
 $router ->post('/login', 'App\Controllers\UserController@loginPost');
+$router ->get('/logout', 'App\Controllers\UserController@logout');
 
 
 $router -> get('/admin/entreprises', 'App\Controllers\Admin\PostController@index');

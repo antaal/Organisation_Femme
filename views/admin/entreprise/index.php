@@ -1,4 +1,9 @@
 <h1>Administration des Entreprises</h1>
+
+<?php if(isset($_GET['success'])): ?>
+  <div class="alert alert-success">Vous êtes Connecté !!! </div>
+  <?php endif ?>
+  
      <a href="/admin/entreprises/create" class="btn btn-success my-3">Créer Une Nouvelle Entreprise</a>
 
 <table class="table">

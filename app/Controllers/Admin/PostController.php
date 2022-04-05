@@ -11,6 +11,7 @@ class PostController extends Controller
 {
     public function index()
     {
+         $this->isAdmin();
         $entreprises = (new Entreprise($this->getDB()))->all();
 
         return $this->view('admin.entreprise.index', compact('entreprises'));

@@ -26,6 +26,13 @@
         <a class="nav-link" href="http://brieffemme.test/admin/entreprises">Admin</a>
       </li>
     </ul>
+    <ul class="navbar-nav ml-auto">
+      <?php if (isset($_SESSION['auth'])): ?>
+      <li class="nav-item">
+        <a class="nav-link" href="/logout">Se Déconnecter</a>
+      </li>
+      <?php endif ?>
+     </ul>
   </div>
 </nav>
     <div class="container">
