@@ -31,7 +31,7 @@ abstract class Controller { //cette classe ne sera jamais instancie donc on le m
 
     protected function isAdmin()
     {
-        if(isset($_SESSION['auth']) && $_SESSION['auth'] ===1){
+        if(isset($_SESSION['auth']) && $_SESSION['auth'] === 1){
             return true;
         }else {
             return header('Location: /login');

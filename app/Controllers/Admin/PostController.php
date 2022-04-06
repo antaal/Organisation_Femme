@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\admin;
+namespace App\Controllers\Admin;
 
 use App\Models\Quartier;
 use App\Models\Entreprise;
@@ -19,12 +19,13 @@ class PostController extends Controller
     }
     public function create()
     {
-       
+        $this->isAdmin();
         return $this->view('admin.entreprise.form');
     }
 
     public function createPost()
-    { $entreprise = new Entreprise($this->getDB());
+    {   $this->isAdmin();
+        $entreprise = new Entreprise($this->getDB());
         $quartier = array_pop($_POST);
         $result = $entreprise ->create($_POST, $quartier);
 
@@ -33,7 +34,7 @@ class PostController extends Controller
         }
     }
     public function edit(int $id)
-    {
+    {       $this->isAdmin();
         $entreprise = (new Entreprise($this->getDB()))->findById($id);
         $quartier = (new Quartier($this->getDB()))->all();
 
@@ -42,7 +43,7 @@ class PostController extends Controller
     }
 
     public function update(int $id)
-    {
+    {    $this->isAdmin();
         $entreprise = new Entreprise($this->getDB());
         $quartier = array_pop($_POST);
         $result = $entreprise ->update($id, $_POST, $quartier);
@@ -54,7 +55,7 @@ class PostController extends Controller
     }
 
     public function destroy (int $id)
-    {
+    {   $this->isAdmin();
         $entreprise = new Entreprise($this->getDB());
         $result = $entreprise ->destroy($id);
 

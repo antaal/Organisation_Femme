@@ -12,7 +12,8 @@ class Entreprise extends Model{
        return (new DateTime($this->dateCreation))->format('d/m/Y à H:i');
         
     }
-   
+    
+    
 
     public function getButton():string
     {

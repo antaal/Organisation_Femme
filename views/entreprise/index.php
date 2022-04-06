@@ -28,6 +28,7 @@
                             <td><small class="bg-success w-100 rounded">Crée le <?= $entreprise->getCreatedAt() ?></small><br><br></td>
 
                             <td>
+                           
                             <?= $entreprise->getButton() ?>
                             </td>
 

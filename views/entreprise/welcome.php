@@ -1,12 +1,4 @@
-<?php echo password_hash('admin', PASSWORD_DEFAULT); ?>
-<h1> Homepage </h1>
-
-salllllllluuuuuuuuuuuuuuu
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. In, enim illum! Ad, et laboriosam? Dolorem, id dolor deserunt non, sapiente placeat voluptatum nesciunt aliquid inventore numquam possimus praesentium? Maiores, culpa!
-</p>
-
-
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. In, enim illum! Ad, et laboriosam? Dolorem, id dolor deserunt non, sapiente placeat voluptatum nesciunt aliquid inventore numquam possimus praesentium? Maiores, culpa!
-</p>
+<h1 class="text-center mt-5">Nous les Femmes</h1>
+<div class="container-fluid mt-5" >
+<h1 class="text-center">Si Dieu n'avait fait la femme, il n'aurait pas fait la fleur.</h1>
+</div>
