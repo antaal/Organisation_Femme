@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function index()
     {
-         $this->isAdmin();
+        //  $this->isAdmin();
         $entreprises = (new Entreprise($this->getDB()))->all();
 
         return $this->view('admin.entreprise.index', compact('entreprises'));
@@ -19,22 +19,30 @@ class PostController extends Controller
     }
     public function create()
     {
-        $this->isAdmin();
-        return $this->view('admin.entreprise.form');
+        $quartier = (new Quartier($this->getDB()))->all();
+//         // $this->isAdmin();
+// // var_dump($quartier); die();
+    
+    
+
+         return $this->view('admin.entreprise.form', compact('quartier'));
+
     }
 
     public function createPost()
-    {   $this->isAdmin();
+    {
+        //    $this->isAdmin();
         $entreprise = new Entreprise($this->getDB());
-        $quartier = array_pop($_POST);
-        $result = $entreprise ->create($_POST, $quartier);
+        //$quartier = array_pop($_POST);
+        $result = $entreprise ->create($_POST);
 
         if ($result) {
             return header('Location: /admin/entreprises');
         }
     }
     public function edit(int $id)
-    {       $this->isAdmin();
+     {   
+            // $this->isAdmin();
         $entreprise = (new Entreprise($this->getDB()))->findById($id);
         $quartier = (new Quartier($this->getDB()))->all();
 
@@ -43,19 +51,19 @@ class PostController extends Controller
     }
 
     public function update(int $id)
-    {    $this->isAdmin();
+     { 
+        //    $this->isAdmin();
         $entreprise = new Entreprise($this->getDB());
-        $quartier = array_pop($_POST);
-        $result = $entreprise ->update($id, $_POST, $quartier);
-
-        if ($result) {
-            return header('Location: /admin/entreprises');
+        $result = $entreprise ->update($id, $_POST);
+        if ($result==null) {
+            return header('location: /admin/entreprises');
         }
 
     }
 
     public function destroy (int $id)
-    {   $this->isAdmin();
+    {
+        //    $this->isAdmin();
         $entreprise = new Entreprise($this->getDB());
         $result = $entreprise ->destroy($id);
 

@@ -15,7 +15,7 @@ define('DB_PWD', '');
 
 $router= new Router($_GET['url']);
 
-$router ->get('/', 'App\Controllers\EntrepriseController@welcome');
+// $router ->get('/', 'App\Controllers\EntrepriseController@welcome');
 $router ->get('/entreprises', 'App\Controllers\EntrepriseController@index');
 $router -> get('/entreprises/:id', 'App\Controllers\EntrepriseController@show');
 

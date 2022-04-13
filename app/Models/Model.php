@@ -33,24 +33,26 @@ abstract class Model {
         foreach ($data as $key => $value) {
             $comma = $i ===count($data) ? "" : ", ";
             $firstParenthesis .= "{$key}{$comma}";
-            $secondParenthesis .= ": {$key}{$comma}";
+            $secondParenthesis .= ":{$key}{$comma}";
             $i++;
         }
+// var_dump($firstParenthesis, $secondParenthesis); die();
             return $this->query("INSERT INTO {$this->table} ($firstParenthesis)
              VALUES ($secondParenthesis)", $data);
     }
 
-    public function update(int $id,array $data , ?array $relation = null)
+    public function update(int $id,array $data, ?array $relations = null)
     {   
         $sqlRequestPart = "";
         $i = 1;
-
+        // var_dump($sqlRequestPart); die();
         foreach ($data as $key => $value) {
-            $comma = $i ===count($data) ? "" : ', ';
+            $comma = $i === count($data) ? "" : ', ';
            $sqlRequestPart .= "{$key} = :{$key}{$comma}";
            $i++;
         }
        
+
         $data['id'] = $id;
         return $this->query("UPDATE {$this->table} SET {$sqlRequestPart} WHERE id = :id", $data);
         

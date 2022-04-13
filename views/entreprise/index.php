@@ -8,8 +8,8 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Nom</th>
-                    <th scope="col">Siège</th>
-                      <th scope="col">Ninéa</th>
+                      <th scope="col">Siège</th>
+                      <th scope="col">Téléphone</th>
                         <th scope="col">Localité</th>
                         <th scope="col">Date</th>
                         <th scope="col">Détails</th>
@@ -21,7 +21,7 @@
                         <th scope="row"><?= $entreprise->id ?></th>
                           <td><?= $entreprise->nom ?></td>
                          <td><?= $entreprise->siege ?></td>
-                          <td><?= $entreprise->ninea ?></td>
+                          <td><?= $entreprise->telephone ?></td>
                           <?php foreach ($entreprise->getQuartier() as $quartier): ?>
         <td><?= $quartier->nom ?></td>
       <?php endforeach ?>

@@ -9,7 +9,7 @@ class EntrepriseController extends Controller{
 
     public function welcome()
     {
-        return $this->view('entreprise.welcome'); 
+        return $this->view('entreprise.index'); 
     }
 
     public function index(){

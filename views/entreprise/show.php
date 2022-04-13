@@ -1,22 +1,19 @@
-<div class="container-fluid" style="margin-top: 80px">
-<h2 class="text-center text-success font-weight-bold">Detail Entreprise</h2>
+<div class="container" style="margin-top: 20px">
+<h1 class="text-center text-success font-weight-bold">Detail Entreprise</h1>
 
-<div  class="border border-success col-6 rounded  mx-6" >
-<tr>
-<h1><?= $params['entreprise'] ->nom ?></h1>
-<td><?= $params['entreprise'] ->siege ?></td><br>
-</td><?= $params['entreprise'] ->siteWeb ?></td><br>
-</td><?= $params['entreprise']->ninea ?></td><br>
-<td><?= $params['entreprise']->dispositifFormation ?></td><br>
-<td><?= $params['entreprise']->organigramme ?></td><br>
-<td><?= $params['entreprise']->contrat ?></td><br>
-<td><?= $params['entreprise']->ninea ?></td><br>
-<td><?= $params['entreprise']->registre ?></td>
-</tr><br><br>
-<div><a href="/entreprises" class="btn btn-secondary">Retour</a></div>
-
-</div>
+<div  class=" col-6 rounded text-center  mx-6" style="margin-top: 20px; margin-left:25%; background-color:papayawhip">
+<tr >
+<h2 class="text-center"><td><?= $params['entreprise'] ->nom ?></td></h2>
+<h3><td><?= $params['entreprise'] ->siege ?></td></h3>
+<h3></td><?= $params['entreprise'] ->siteWeb ?></td></h3>
+<h3></td><?= $params['entreprise']->ninea ?></td></h3>
+<h3><td><?= $params['entreprise']->dispositifFormation ?'Formation Disponible':'Formation Non Disponible'?></td></h3>
+<h3><td><?= $params['entreprise']->organigramme ?'Organigramme Disponible':'Pas d\'Organigramme'?></td></h3>
+<h3><td><?= $params['entreprise']->contrat ?'Contrat Disponible':'Contrat Non Disponible'?></td></h3>
+<h3><td><?= $params['entreprise']->registre ?'Registre Disponible':'Pas de Registre' ?></td></h3>
+</tr>
+<div class="text-center"><a href="/entreprises" class="btn btn-success  ">Retour</a></div>
 
 </div>
 
-
+</div>
