@@ -39,14 +39,15 @@ public function create(array $data, ?array $relations=  null)
 {
     parent::create($data);
 
-    $id = $this->db->getPDO()->lastInsertId();
+    // $id = $this->db->getPDO()->lastInsertId();
 
-    foreach ($relations as $quartier_id) {
-        $stmt = $this->db->getPDO()->prepare("INSERT entreprises (id, quartier_id) VALUES (?, ?)");
-        $stmt->execute([$id, $quartier_id]);
-    }
+    // // foreach ($relations as $quartier_id) {
+    // //     $stmt = $this->db->getPDO()->prepare("INSERT entreprises (id, quartier_id) VALUES (?, ?)");
+    // //     $stmt->execute([$id, $quartier_id]);
+    // // }
+   
 
-    return true;
+    // return true;
 }
 
 public function update(int $id, array $data, ?array $relations = null)

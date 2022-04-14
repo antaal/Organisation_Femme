@@ -7,10 +7,11 @@
 <h3><td><?= $params['entreprise'] ->siege ?></td></h3>
 <h3></td><?= $params['entreprise'] ->siteWeb ?></td></h3>
 <h3></td><?= $params['entreprise']->ninea ?></td></h3>
+<h3><td><?= $params['entreprise']->registre ?></td></h3>
 <h3><td><?= $params['entreprise']->dispositifFormation ?'Formation Disponible':'Formation Non Disponible'?></td></h3>
 <h3><td><?= $params['entreprise']->organigramme ?'Organigramme Disponible':'Pas d\'Organigramme'?></td></h3>
 <h3><td><?= $params['entreprise']->contrat ?'Contrat Disponible':'Contrat Non Disponible'?></td></h3>
-<h3><td><?= $params['entreprise']->registre ?'Registre Disponible':'Pas de Registre' ?></td></h3>
+
 </tr>
 <div class="text-center"><a href="/entreprises" class="btn btn-success  ">Retour</a></div>
 

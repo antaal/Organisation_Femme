@@ -36,7 +36,7 @@ class PostController extends Controller
         //$quartier = array_pop($_POST);
         $result = $entreprise ->create($_POST);
 
-        if ($result) {
+        if ($result==null) {
             return header('Location: /admin/entreprises');
         }
     }

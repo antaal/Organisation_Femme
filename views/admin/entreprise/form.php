@@ -27,17 +27,17 @@
       <input type="text" class="form-control" name="siteWeb" id="siteWeb" value="<?= $params['entreprise']->siteWeb ?? '' ?>">
     </div>
     <div class="mb-3 form-check">
-      <input type="checkbox" name="dispositifFormation" class="form-check-input" id="dispositifFormation" value="<?= $params['entreprise']->dispositifFormation ?? '' ?>">
+      <input type="checkbox" name="dispositifFormation" class="form-check-input" id="dispositifFormation" value="<?= $params['entreprise']->dispositifFormation ?? 1 ?>">
      <label class="form-check-label" for="dispositifFormation">Avez-vous un Dispositif de formation ?</label>
 
     </div>
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" name="organigramme" id="organigramme" value="<?= $params['entreprise']->organigramme  ?? '' ?>">
+      <input type="checkbox" class="form-check-input" name="organigramme" id="organigramme" value="<?= $params['entreprise']->organigramme  ?? 1 ?>">
       
       <label class="form-check-label" for="organigramme">Avez-vous un organigramme ?</label>
     </div class="form-group">
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" name="contrat" id="contrat" value="<?= $params['entreprise']->contrat ?? '' ?>">
+      <input type="checkbox" class="form-check-input" name="contrat" id="contrat" value="<?= $params['entreprise']->contrat ??  1 ?>">
      
       <label class="form-check-label" for="contrat">Avez-vous des contrats ?</label>
     </div>

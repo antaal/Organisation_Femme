@@ -63,16 +63,16 @@ abstract class Model {
         return $this->query("DELETE FROM {$this->table} WHERE id = ?", [$id]);
     }
 
-    public function query(string $sql, array $param = null, bool $single = null)
+    public function query(string $sql, array $params = null, bool $single = null)
     {
-        $method = is_null($param) ? 'query' : 'prepare'; 
+        $method = is_null($params) ? 'query' : 'prepare'; 
         if (strpos($sql, 'DELETE') === 0 
         || strpos($sql, 'UPDATE') === 0 
         || strpos($sql, 'INSERT') === 0 ) {
 
             $stmt = $this->db->getPDO()->$method($sql);
             $stmt->setFetchMode(PDO:: FETCH_CLASS, get_class($this),[$this->db]);
-            return  $stmt->execute($param);
+            return  $stmt->execute($params);
         }
         $fetch = is_null($single) ? 'fetchAll' : 'fetch';
         
@@ -83,7 +83,7 @@ abstract class Model {
          {
             return $stmt->$fetch();
          }else{
-             $stmt->execute($param);
+              $stmt->execute($params);
              return $stmt->$fetch();
          }
 
